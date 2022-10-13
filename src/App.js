@@ -10,7 +10,7 @@ function App() {
   return (
       <React.Fragment>
         <Routes>
-          <Route exact path = '/' element={<Home />} />
+          <Route exact path = '/aws-hackathon' element={<Home />} />
           <Route exact path = '/pharmaCovigilance' element={<PharmaCovigilance />} />
           <Route exact path = '/clinical-keyword-disambigution' element={<ClinicalKeywordDisambigution />} />
           <Route component = {<Notfound />} />
