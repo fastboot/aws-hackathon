@@ -44,7 +44,7 @@ function ClinicalKeywordDisambigution() {
                 <Description height="50px" onInput={e => setKeyword(e.target.value)} />
                 <Experience onClick={getResponseText}>See the magic</Experience>
                 {!isLoading && isDone && (<ResponseDescription>{expandedKeywordDescription}</ResponseDescription>)}
-                <Link style={{ "textDecoration": "none" }} to = '/'><Experience>Go Back To Home</Experience></Link>
+                <Link style={{ "textDecoration": "none" }} to = '/aws-hackathon'><Experience>Go Back To Home</Experience></Link>
             </PageWrapper>
         </React.Fragment>
       )
