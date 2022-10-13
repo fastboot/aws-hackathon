@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { NavLink as Link } from 'react-router-dom'
-import { Description, ResponseDescription, PageWrapper, Name, Experience } from './styles'
+import { Description, ResponseDescription, PageWrapper, Name, Experience, Warning } from './styles'
 
 function ClinicalKeywordDisambigution() {
 
@@ -41,6 +41,7 @@ function ClinicalKeywordDisambigution() {
                 fromcolor = '#FF512F'
                 tocolor = '#DD2476'
             >
+                <Warning><span>&#9888;&nbsp;</span> We recommend keeping the keyword in uppercase in description and keyword search box.</Warning>
                 <Name>Description</Name>
                 { !isDone && (<Description height="150px" onInput={e => setDescription(e.target.value)} />)}
                 { isDone && 

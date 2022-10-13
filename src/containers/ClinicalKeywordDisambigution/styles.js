@@ -89,3 +89,19 @@ export const ResponseDescription = styled.div`
     font-size: 20px;
     font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
 `
+
+export const Warning = styled.div`
+    width: 80vw;
+    height: 5vh;
+    color: white;
+    margin-top: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    text-align: left;
+    align-items: left;
+    position: relative;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+`
