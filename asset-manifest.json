@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/react-gh-pages/static/js/main.f145f2fb.js",
-    "index.html": "/react-gh-pages/index.html",
-    "main.f145f2fb.js.map": "/react-gh-pages/static/js/main.f145f2fb.js.map"
+    "main.js": "/aws-hackathon/static/js/main.fcfdbbb3.js",
+    "index.html": "/aws-hackathon/index.html",
+    "main.fcfdbbb3.js.map": "/aws-hackathon/static/js/main.fcfdbbb3.js.map"
   },
   "entrypoints": [
-    "static/js/main.f145f2fb.js"
+    "static/js/main.fcfdbbb3.js"
   ]
 }
