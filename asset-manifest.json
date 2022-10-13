@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/aws-hackathon/static/js/main.a9254ecf.js",
+    "main.js": "/aws-hackathon/static/js/main.f9fdffc0.js",
     "index.html": "/aws-hackathon/index.html",
-    "main.a9254ecf.js.map": "/aws-hackathon/static/js/main.a9254ecf.js.map"
+    "main.f9fdffc0.js.map": "/aws-hackathon/static/js/main.f9fdffc0.js.map"
   },
   "entrypoints": [
-    "static/js/main.a9254ecf.js"
+    "static/js/main.f9fdffc0.js"
   ]
 }
