@@ -9,7 +9,7 @@ function PharmaCovigilance() {
     const [transcript, setTranscript] = useState('')
     const [predictedLabel, setPredictedLabel] = useState('')
     const [link, setLink] = useState('')
-    const [isAdverse, setIsAdverse] = useState(false)
+    const [isNotAdverse, setIsNotAdverse] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
     const [isDone, setIsDone] = useState(false);
 
@@ -23,10 +23,7 @@ function PharmaCovigilance() {
         .then((res) => {
             const response = JSON.parse(res.data.body)
             setPredictedLabel(response.predicted_label)
-            if (predictedLabel === 'adverse_event') {
-                setIsAdverse(true)
-                setLink(response.object_url)
-            }
+            setLink(response.object_url)
         })
         .catch((err) => {
             console.log('i am here')
@@ -49,14 +46,12 @@ function PharmaCovigilance() {
                 <Name>Transcript</Name>
                 <Description height="150px" onInput={e => setTranscript(e.target.value)}/>
                 <Experience onClick={getResponseText}>See the magic</Experience>
-                {!isLoading && isDone && (<ResponseDescription>
+                {isDone && (<ResponseDescription>
                     {predictedLabel}
-                    {isAdverse && (
-                        <h3><a href = {link}>Download your form</a></h3>
-                    )}
+                    { predictedLabel === 'adverse_event' && ( <h3><a href = {link}>Download your form</a></h3>)}
                 </ResponseDescription>
                 )}
-                <Link style={{ "textDecoration": "none" }}to = '/'><Experience>Go Back To Home</Experience></Link>
+                <Link style={{ "textDecoration": "none" }}to = '/aws-hackathon'><Experience>Go Back To Home</Experience></Link>
             </PageWrapper>
         </React.Fragment>
       )
