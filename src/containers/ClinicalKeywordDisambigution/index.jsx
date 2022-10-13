@@ -8,7 +8,7 @@ function ClinicalKeywordDisambigution() {
     const [description, setDescription] = useState('')
     const [keyword, setKeyword] = useState('')
     const [isDone, setIsDone] = useState(false);
-    const [expandedKeywordDescription, setExpandedKeywordDescription] = useState('')
+    const [expandedKeywordDescription, setExpandedKeywordDescription] = useState()
     const [isLoading, setIsLoading] = useState(false)
 
     const getResponseText = async () => {
@@ -20,7 +20,8 @@ function ClinicalKeywordDisambigution() {
         })
         .then((res) => {
             const response = JSON.parse(res.data.body)
-            setExpandedKeywordDescription(description.replace(keyword, response.predicted_sense));
+            const highlighted = description.replace(keyword, () => `<span style="color: green; font-weight: bold;">${response.predicted_sense} </span>` );
+            setExpandedKeywordDescription(highlighted);
         })
         .catch((err) => {
             console.log('i am here')
@@ -43,7 +44,12 @@ function ClinicalKeywordDisambigution() {
                 <Name>Keyword to search for</Name>
                 <Description height="50px" onInput={e => setKeyword(e.target.value)} />
                 <Experience onClick={getResponseText}>See the magic</Experience>
-                {!isLoading && isDone && (<ResponseDescription>{expandedKeywordDescription}</ResponseDescription>)}
+                {!isLoading && isDone && (<ResponseDescription>
+                    <div
+                        dangerouslySetInnerHTML={{__html: 
+                        expandedKeywordDescription}}>
+                    </div>
+                </ResponseDescription>)}
                 <Link style={{ "textDecoration": "none" }} to = '/aws-hackathon'><Experience>Go Back To Home</Experience></Link>
             </PageWrapper>
         </React.Fragment>
