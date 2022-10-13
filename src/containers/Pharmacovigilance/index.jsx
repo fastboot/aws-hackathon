@@ -11,6 +11,7 @@ function PharmaCovigilance() {
     const [link, setLink] = useState('')
     const [isAdverse, setIsAdverse] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
+    const [isDone, setIsDone] = useState(false);
 
     const getResponseText = async () => {
         setIsLoading(true);
@@ -31,7 +32,10 @@ function PharmaCovigilance() {
             console.log('i am here')
             console.log(err);
         })
-        .finally(() => setIsLoading(false))
+        .finally(() => {
+            setIsLoading(false)
+            setIsDone(true)
+        })
     }
 
     return (
@@ -41,18 +45,18 @@ function PharmaCovigilance() {
                 tocolor = '#8E54E9'
             >
                 <Name>Text</Name>
-                <Description onInput={e => setText(e.target.value)}/>
+                <Description height="150px" onInput={e => setText(e.target.value)}/>
                 <Name>Transcript</Name>
-                <Description onInput={e => setTranscript(e.target.value)}/>
+                <Description height="150px" onInput={e => setTranscript(e.target.value)}/>
                 <Experience onClick={getResponseText}>See the magic</Experience>
-                <ResponseDescription>
+                {!isLoading && isDone && (<ResponseDescription>
                     {predictedLabel}
                     {isAdverse && (
                         <h3><a href = {link}>Download your form</a></h3>
                     )}
                 </ResponseDescription>
-                
-                <Link to = '/'><Experience>Go Back To Home</Experience></Link>
+                )}
+                <Link style={{ "textDecoration": "none" }}to = '/'><Experience>Go Back To Home</Experience></Link>
             </PageWrapper>
         </React.Fragment>
       )

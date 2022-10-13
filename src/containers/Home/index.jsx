@@ -11,7 +11,7 @@ function Home() {
             >
                 <Name>
                     Pharmacovigilance
-                    <Link to = '/pharmacovigilance' ><Experience>Experience Now</Experience></Link>
+                    <Link style={{ "textDecoration": "none" }} to = '/pharmacovigilance' ><Experience>Experience Now</Experience></Link>
                 </Name>
             </SolutionDiv>
             <SolutionDiv
@@ -20,7 +20,7 @@ function Home() {
             >
                 <Name>
                     Clinical Keyword Disambigution
-                    <Link to = '/clinical-keyword-disambigution' ><Experience>Experience Now</Experience></Link>
+                    <Link style={{ "textDecoration": "none" }} to = '/clinical-keyword-disambigution' ><Experience>Experience Now</Experience></Link>
                 </Name>
             </SolutionDiv>
         </React.Fragment>

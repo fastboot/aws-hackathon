@@ -27,14 +27,14 @@ export const Name = styled.div`
   width: 70vw;
   height: 5vh;
   color: white;
-  margin-top: 10px;
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
   justify-content: left;
   text-align: left;
   align-items: left;
   position: relative;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
   font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
 `
@@ -58,7 +58,7 @@ export const Heading = styled.h1`
     margin-top: 100px;
 `;
 
-export const Description = styled.input`
+export const Description = styled.textarea`
     width: 70%;
     font-size: 14px;
     padding: 6px 8px;
@@ -66,16 +66,28 @@ export const Description = styled.input`
     border-style: solid;
     border-color: ${props => props.error ? 'red' : 'black'};
     margin: 0;
+    height: ${ props => props.height };
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+    font-size: 20px;
+    font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
 `
 
 export const ResponseDescription = styled.div`
     width: 70%;
-    height: 30vh;
-    font-size: 14px;
-    margin-top: 100px;
+    font-size: 20px;
     padding: 6px 8px;
-    border-width: 1px;
     border-style: solid;
-    color: white;
-    border-color: ${props => props.error ? 'red' : 'black'};
+    margin-top: 70px;
+    height: ${ props => props.height };
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+    font-size: 20px;
+    font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
 `

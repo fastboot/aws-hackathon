@@ -7,17 +7,9 @@ function ClinicalKeywordDisambigution() {
 
     const [description, setDescription] = useState('')
     const [keyword, setKeyword] = useState('')
+    const [isDone, setIsDone] = useState(false);
     const [expandedKeywordDescription, setExpandedKeywordDescription] = useState('')
     const [isLoading, setIsLoading] = useState(false)
-
-    // const config = {
-    //     headers: {
-    //       "Access-Control-Allow-Origin": "*",
-    //       "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-    //       Accept: 'application/json',
-    //       'Content-Type': 'application/json',
-    //     }
-    //   };
 
     const getResponseText = async () => {
         setIsLoading(true);
@@ -34,7 +26,10 @@ function ClinicalKeywordDisambigution() {
             console.log('i am here')
             console.log(err);
         })
-        .finally(() => setIsLoading(false))
+        .finally(() => {
+            setIsLoading(false)
+            setIsDone(true);
+        })
     }
 
     return (
@@ -44,12 +39,12 @@ function ClinicalKeywordDisambigution() {
                 tocolor = '#DD2476'
             >
                 <Name>Description</Name>
-                <Description onInput={e => setDescription(e.target.value)} />
+                <Description height="150px" onInput={e => setDescription(e.target.value)} />
                 <Name>Keyword to search for</Name>
-                <Description onInput={e => setKeyword(e.target.value)} />
+                <Description height="50px" onInput={e => setKeyword(e.target.value)} />
                 <Experience onClick={getResponseText}>See the magic</Experience>
-                <ResponseDescription>{expandedKeywordDescription}</ResponseDescription>
-                <Link to = '/'><Experience>Go Back To Home</Experience></Link>
+                {!isLoading && isDone && (<ResponseDescription>{expandedKeywordDescription}</ResponseDescription>)}
+                <Link style={{ "textDecoration": "none" }} to = '/'><Experience>Go Back To Home</Experience></Link>
             </PageWrapper>
         </React.Fragment>
       )
