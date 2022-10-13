@@ -20,7 +20,9 @@ function ClinicalKeywordDisambigution() {
         })
         .then((res) => {
             const response = JSON.parse(res.data.body)
-            const highlighted = description.replace(keyword, () => `<span style="color: green; font-weight: bold;">${response.predicted_sense} </span>` );
+            const highlighted = description.replace(keyword, () => `<span style="color: green; font-weight: bold;">${response.predicted_sense} </span>` )
+            const highlightedDescription = description.replace(keyword, () => `<span style="color: purple; font-weight: bold;">${keyword} </span>` )
+            setDescription(highlightedDescription);
             setExpandedKeywordDescription(highlighted);
         })
         .catch((err) => {
@@ -40,7 +42,15 @@ function ClinicalKeywordDisambigution() {
                 tocolor = '#DD2476'
             >
                 <Name>Description</Name>
-                <Description height="150px" onInput={e => setDescription(e.target.value)} />
+                { !isDone && (<Description height="150px" onInput={e => setDescription(e.target.value)} />)}
+                { isDone && 
+                    <ResponseDescription>
+                    <div
+                        dangerouslySetInnerHTML={{__html: 
+                        description}}>
+                    </div>
+                    </ResponseDescription>
+                } 
                 <Name>Keyword to search for</Name>
                 <Description height="50px" onInput={e => setKeyword(e.target.value)} />
                 <Experience onClick={getResponseText}>See the magic</Experience>

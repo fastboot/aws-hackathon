@@ -47,7 +47,7 @@ function PharmaCovigilance() {
                 <Description height="150px" onInput={e => setTranscript(e.target.value)}/>
                 <Experience onClick={getResponseText}>See the magic</Experience>
                 {isDone && (<ResponseDescription>
-                    {predictedLabel}
+                    {predictedLabel === 'adverse_event' ? <p style={{ "color": "red", "fontWeight": "bold" }}>Adverse Event</p> : <p style={{ "color": "green", "fontWeight": "bold" }}>Not an adverse event</p>}
                     { predictedLabel === 'adverse_event' && ( <h3><a href = {link}>Download your form</a></h3>)}
                 </ResponseDescription>
                 )}
