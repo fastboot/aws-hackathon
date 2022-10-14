@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const PageWrapper = styled.div`
-    height: 100vh;
+    height: auto;
     width: 100vw;
     top: 0;
     left: 0;
@@ -9,7 +9,7 @@ export const PageWrapper = styled.div`
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    
     text-align: center;
     align-items: center;
     position: relative;
@@ -43,13 +43,16 @@ export const Experience = styled.div`
   width: 200px;
   height: 40px;
   background: black;
-  margin-top: 100px;
   font-size: 20px;
   font-weight: bold;
   line-height: 40px;
   font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
   color: white;
   border-radius: 50px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `
 
 export const Heading = styled.h1`
@@ -63,7 +66,7 @@ export const Description = styled.textarea`
     font-size: 20px;
     padding: 6px 8px;
     border-style: solid;
-    margin: 0;
+    margin-bottom: 70px;
     height: ${ props => props.height };
     padding: 12px 20px;
     box-sizing: border-box;
@@ -78,8 +81,8 @@ export const ResponseDescription = styled.div`
     width: 70%;
     font-size: 20px;
     padding: 6px 8px;
+    margin-bottom: 70px;
     border-style: solid;
-    margin-top: 70px;
     height: ${ props => props.height };
     padding: 12px 20px;
     box-sizing: border-box;

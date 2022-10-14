@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const PageWrapper = styled.div`
-    height: 100vh;
+    height: auto;
     width: 100vw;
     top: 0;
     left: 0;

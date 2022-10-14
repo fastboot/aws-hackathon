@@ -44,7 +44,7 @@ function PharmaCovigilance() {
                 <Name>Text</Name>
                 <Description height="150px" onInput={e => setText(e.target.value)}/>
                 <Name>Transcript</Name>
-                <Description height="150px" onInput={e => setTranscript(e.target.value)}/>
+                <Description height="450px" onInput={e => setTranscript(e.target.value)}/>
                 <Experience onClick={getResponseText}>See the magic</Experience>
                 {isDone && (<ResponseDescription>
                     {predictedLabel === 'adverse_event' ? <p style={{ "color": "red", "fontWeight": "bold" }}>Adverse Event</p> : <p style={{ "color": "green", "fontWeight": "bold" }}>Not an adverse event</p>}
@@ -52,6 +52,7 @@ function PharmaCovigilance() {
                 </ResponseDescription>
                 )}
                 <Link style={{ "textDecoration": "none" }}to = '/aws-hackathon'><Experience>Go Back To Home</Experience></Link>
+                <Name></Name>
             </PageWrapper>
         </React.Fragment>
       )

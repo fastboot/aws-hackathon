@@ -10,6 +10,7 @@ function ClinicalKeywordDisambigution() {
     const [isDone, setIsDone] = useState(false);
     const [expandedKeywordDescription, setExpandedKeywordDescription] = useState()
     const [isLoading, setIsLoading] = useState(false)
+    const [meaning, setMeaning] = useState('')
 
     const getResponseText = async () => {
         setIsLoading(true);
@@ -24,6 +25,7 @@ function ClinicalKeywordDisambigution() {
             const highlightedDescription = description.replace(keyword, () => `<span style="color: purple; font-weight: bold;">${keyword} </span>` )
             setDescription(highlightedDescription);
             setExpandedKeywordDescription(highlighted);
+            setMeaning(response.meaning)
         })
         .catch((err) => {
             console.log('i am here')
@@ -61,7 +63,12 @@ function ClinicalKeywordDisambigution() {
                         expandedKeywordDescription}}>
                     </div>
                 </ResponseDescription>)}
+                <Name>What does the keyword mean?</Name>
+                <ResponseDescription height="50px">
+                    {meaning}
+                </ResponseDescription>
                 <Link style={{ "textDecoration": "none" }} to = '/aws-hackathon'><Experience>Go Back To Home</Experience></Link>
+                <Name></Name>
             </PageWrapper>
         </React.Fragment>
       )
